@@ -15,7 +15,7 @@ class Circle : public Figure {
 private:
     double radius;
 public:
-    Circle(double r) : radius(r) {}
+    Circle(double r) : radius{r} {}
     void drawAscii() {
         for (int y = -radius; y <= radius; ++y) {
             for (int x = -radius; x <= radius; ++x) {
@@ -38,7 +38,7 @@ class Square : public Figure {
 private:
     double side;
 public:
-    Square(double s) : side(s) {}
+    Square(double s) : side{s} {}
     void drawAscii() {
         for(int i = 0; i < side; i++) {
             for(int j = 0; j < side; j++) {
@@ -58,7 +58,7 @@ private:
     double base;
     double height;
 public:
-    Triangle(double b, double h) : base(b), height(h) {}
+    Triangle(double b, double h) : base{b}, height{h} {}
     void drawAscii() {
         for (int i = 0; i < height; i++) {
         for (int j = 0; j < height - i - 1; j++) {
@@ -83,7 +83,7 @@ private:
     double width;
     double height;
 public:
-    Rectangle(double w, double h) : width(w), height(h) {}
+    Rectangle(double w, double h) : width{w}, height{h} {}
     void drawAscii() {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -121,7 +121,7 @@ int main() {
             figures[0] = new Circle(parametr);
             figures[0]->drawAscii();
             cout << "Area: " << figures[0]->area() << endl;
-            delete figures[1];
+            delete figures[0];
         } break;
         case 2: {
             cout << "Enter side length: \n";
@@ -129,7 +129,7 @@ int main() {
             figures[1] = new Square(parametr);
             figures[1]->drawAscii();
             cout << "Area: " << figures[1]->area() << endl;
-            delete figures[2];
+            delete figures[1];
         } break;
         case 3: {
             cout << "Enter base length and height: \n";
@@ -137,7 +137,7 @@ int main() {
             figures[2] = new Triangle(base, height);
             figures[2]->drawAscii();
             cout << "Area: " << figures[2]->area() << endl;
-            delete figures[3];
+            delete figures[2];
         } break;
         case 4: {
             cout << "Enter width and height: \n";
@@ -146,6 +146,7 @@ int main() {
             figures[3]->drawAscii();
             cout << "Area: " << figures[3]->area() << endl;
             delete figures[3];
+            
         } break;
     }
 
