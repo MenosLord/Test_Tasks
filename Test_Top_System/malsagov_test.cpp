@@ -104,7 +104,7 @@ int main() {
     int base = 0;
     int width = 0;
     int height = 0;
-    Figure* figures[4];
+    Figure* figures;
 
     // меню
     cout << "Choose your figure: \n";
@@ -118,41 +118,39 @@ int main() {
         case 1: {
             cout << "Enter radius: \n";
             cin >> parametr;
-            figures[0] = new Circle(parametr);
-            figures[0]->drawAscii();
-            cout << "Area: " << figures[0]->area() << endl;
-            delete figures[0];
+            figures = new Circle(parametr);
+            figures->drawAscii();
+            cout << "Area: " << figures->area() << endl;
+            
         } break;
         case 2: {
             cout << "Enter side length: \n";
             cin >> parametr;
-            figures[1] = new Square(parametr);
-            figures[1]->drawAscii();
-            cout << "Area: " << figures[1]->area() << endl;
-            delete figures[1];
+            figures = new Square(parametr);
+            figures->drawAscii();
+            cout << "Area: " << figures->area() << endl;
+            
         } break;
         case 3: {
             cout << "Enter base length and height: \n";
             cin >> base >> height;
-            figures[2] = new Triangle(base, height);
-            figures[2]->drawAscii();
-            cout << "Area: " << figures[2]->area() << endl;
-            delete figures[2];
+            figures = new Triangle(base, height);
+            figures->drawAscii();
+            cout << "Area: " << figures->area() << endl;
+            
         } break;
         case 4: {
             cout << "Enter width and height: \n";
             cin >> width >> height;
-            figures[3] = new Rectangle(width, height);
-            figures[3]->drawAscii();
-            cout << "Area: " << figures[3]->area() << endl;
-            delete figures[3];
+            figures = new Rectangle(width, height);
+            figures->drawAscii();
+            cout << "Area: " << figures->area() << endl;
             
         } break;
     }
 
     //очистка памяти
-    for(int i = 0; i < 4; i++) {
-        delete figures[i];
-    }   
+    delete figures;
+ 
     return 0;
 }
