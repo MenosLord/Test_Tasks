@@ -85,8 +85,8 @@ private:
 public:
     Rectangle(int32_t w, int32_t h) : width{w}, height{h} {}
     void drawAscii() {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        for (auto i = 0; i < height; i++) {
+            for (auto j = 0; j < width; j++) {
                 cout << "*";
             }
             cout << endl;
